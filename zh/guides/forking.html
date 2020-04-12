@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>forking 工作流 | 杨煜庭的博客</title>
+    <meta name="description" content="Just playing around">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="icon" href="/gitflow/favicon.ico">
+    
+    <link rel="preload" href="/gitflow/assets/css/0.styles.9239f6ad.css" as="style"><link rel="preload" href="/gitflow/assets/js/app.9ae11dac.js" as="script"><link rel="preload" href="/gitflow/assets/js/2.874e22fe.js" as="script"><link rel="preload" href="/gitflow/assets/js/10.f92a5ff3.js" as="script"><link rel="prefetch" href="/gitflow/assets/js/11.336f9567.js"><link rel="prefetch" href="/gitflow/assets/js/12.c6f152b6.js"><link rel="prefetch" href="/gitflow/assets/js/13.b8a6042b.js"><link rel="prefetch" href="/gitflow/assets/js/14.acd01ad8.js"><link rel="prefetch" href="/gitflow/assets/js/15.b14c02f9.js"><link rel="prefetch" href="/gitflow/assets/js/16.790d431a.js"><link rel="prefetch" href="/gitflow/assets/js/3.62ce4935.js"><link rel="prefetch" href="/gitflow/assets/js/4.70f6da89.js"><link rel="prefetch" href="/gitflow/assets/js/5.1172d456.js"><link rel="prefetch" href="/gitflow/assets/js/6.39615f05.js"><link rel="prefetch" href="/gitflow/assets/js/7.53c29639.js"><link rel="prefetch" href="/gitflow/assets/js/8.e65d0679.js"><link rel="prefetch" href="/gitflow/assets/js/9.5de3997f.js">
+    <link rel="stylesheet" href="/gitflow/assets/css/0.styles.9239f6ad.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/gitflow/" class="home-link router-link-active"><!----> <span class="site-name">杨煜庭的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/gitflow/zh/guides/" class="nav-link router-link-active">
+  工作流介绍
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/gitflow/zh/guides/" class="nav-link router-link-active">
+  工作流介绍
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/gitflow/zh/guides/centralized.html" class="sidebar-link">集中式工作流</a></li><li><a href="/gitflow/zh/guides/feature.html" class="sidebar-link">功能分支工作流</a></li><li><a href="/gitflow/zh/guides/gitFlow.html" class="sidebar-link">git flow 工作流</a></li><li><a href="/gitflow/zh/guides/forking.html" class="active sidebar-link">forking 工作流</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/gitflow/zh/guides/forking.html#工作方式" class="sidebar-link">工作方式</a></li><li class="sidebar-sub-header"><a href="/gitflow/zh/guides/forking.html#正式仓库" class="sidebar-link">正式仓库</a></li><li class="sidebar-sub-header"><a href="/gitflow/zh/guides/forking.html#forking-工作流的分支使用方式" class="sidebar-link">Forking 工作流的分支使用方式</a></li></ul></li><li><a href="/gitflow/zh/guides/githubFlow.html" class="sidebar-link">github flow 工作流</a></li><li><a href="/gitflow/zh/guides/gitlabFlow.html" class="sidebar-link">gitlab flow 工作流</a></li><li><a href="/gitflow/zh/guides/AoneFlow.html" class="sidebar-link">Aone flow 工作流</a></li><li><a href="/gitflow/zh/guides/commitizen.html" class="sidebar-link">commit规范</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="forking-工作流"><a href="#forking-工作流" class="header-anchor">#</a> forking 工作流</h1> <p>Forking 工作流和前面讨论的几种工作流有根本的不同。这种工作流不是使用单个服务端仓库作为『中央』代码基线，
+而让各个开发者都有一个服务端仓库。这意味着各个代码贡献者有 2 个 Git 仓库而不是 1 个：一个本地私有的，另一个服务端公开的。</p> <p><img src="/gitflow/assets/img/git-workflows-forking.ba2bd4a2.png" alt="The Feathers chat application"></p> <p>Forking 工作流的一个主要优势是，贡献的代码可以被集成，而不需要所有人都能 push 代码到仅有的中央仓库中。开发者 push 到自己的服务端仓库，
+而只有项目维护者才能 push 到正式仓库。这样项目维护者可以接受任何开发者的提交，但无需给他正式代码库的写权限。</p> <p>效果就是一个分布式的工作流，能为大型、自发性的团队（包括了不受信的第三方）提供灵活的方式来安全的协作。也让这个工作流成为开源项目的理想工作流。</p> <h2 id="工作方式"><a href="#工作方式" class="header-anchor">#</a> 工作方式</h2> <p>和其它的 Git 工作流一样，Forking 工作流要先有一个公开的正式仓库存储在服务器上。但一个新的开发者想要在项目上工作时，不是直接从正式仓库克隆，
+而是 fork 正式项目在服务器上创建一个拷贝。</p> <p>这个仓库拷贝作为他个人公开仓库 —— 其它开发者不允许 push 到这个仓库，但可以 pull 到修改（后面我们很快就会看这点很重要）。在创建了自己服务端拷贝之后，
+和之前的工作流一样，开发者执行 git clone 命令克隆仓库到本地机器上，作为私有的开发环境。</p> <p>要提交本地修改时，push 提交到自己公开仓库中 —— 而不是正式仓库中。然后，给正式仓库发起一个 pull request，让项目维护者知道有更新已经准备好可以集成了。
+对于贡献的代码，pull request 也可以很方便地作为一个讨论的地方。</p> <p>为了集成功能到正式代码库，维护者 pull 贡献者的变更到自己的本地仓库中，检查变更以确保不会让项目出错，合并变更到自己本地的 master 分支，然后 push master
+分支到服务器的正式仓库中。到此，贡献的提交成为了项目的一部分，其它的开发者应该执行 pull 操作与正式仓库同步自己本地仓库。</p> <h2 id="正式仓库"><a href="#正式仓库" class="header-anchor">#</a> 正式仓库</h2> <p>在 Forking 工作流中，『官方』仓库的叫法只是一个约定，理解这点很重要。从技术上来看，各个开发者仓库和正式仓库在Git看来没有任何区别。
+事实上，让正式仓库之所以正式的唯一原因是它是项目维护者的公开仓库。</p> <h2 id="forking-工作流的分支使用方式"><a href="#forking-工作流的分支使用方式" class="header-anchor">#</a> Forking 工作流的分支使用方式</h2> <p>所有的个人公开仓库实际上只是为了方便和其它的开发者共享分支。各个开发者应该用分支隔离各个功能，就像在功能分支工作流和 GitFlow 工作流一样。
+唯一的区别是这些分支被共享了。在 Forking 工作流中这些分支会被 pull 到另一个开发者的本地仓库中，而在功能分支工作流和 GitFlow 工作流中是直接被 push 到正式仓库中。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/gitflow/zh/guides/gitFlow.html" class="prev">
+        git flow 工作流
+      </a></span> <span class="next"><a href="/gitflow/zh/guides/githubFlow.html">
+        github flow 工作流
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/gitflow/assets/js/app.9ae11dac.js" defer></script><script src="/gitflow/assets/js/2.874e22fe.js" defer></script><script src="/gitflow/assets/js/10.f92a5ff3.js" defer></script>
+  </body>
+</html>

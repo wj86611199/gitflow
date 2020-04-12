@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>git flow 工作流 | 杨煜庭的博客</title>
+    <meta name="description" content="Just playing around">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="icon" href="/gitflow/favicon.ico">
+    
+    <link rel="preload" href="/gitflow/assets/css/0.styles.9239f6ad.css" as="style"><link rel="preload" href="/gitflow/assets/js/app.9ae11dac.js" as="script"><link rel="preload" href="/gitflow/assets/js/2.874e22fe.js" as="script"><link rel="preload" href="/gitflow/assets/js/3.62ce4935.js" as="script"><link rel="prefetch" href="/gitflow/assets/js/10.f92a5ff3.js"><link rel="prefetch" href="/gitflow/assets/js/11.336f9567.js"><link rel="prefetch" href="/gitflow/assets/js/12.c6f152b6.js"><link rel="prefetch" href="/gitflow/assets/js/13.b8a6042b.js"><link rel="prefetch" href="/gitflow/assets/js/14.acd01ad8.js"><link rel="prefetch" href="/gitflow/assets/js/15.b14c02f9.js"><link rel="prefetch" href="/gitflow/assets/js/16.790d431a.js"><link rel="prefetch" href="/gitflow/assets/js/4.70f6da89.js"><link rel="prefetch" href="/gitflow/assets/js/5.1172d456.js"><link rel="prefetch" href="/gitflow/assets/js/6.39615f05.js"><link rel="prefetch" href="/gitflow/assets/js/7.53c29639.js"><link rel="prefetch" href="/gitflow/assets/js/8.e65d0679.js"><link rel="prefetch" href="/gitflow/assets/js/9.5de3997f.js">
+    <link rel="stylesheet" href="/gitflow/assets/css/0.styles.9239f6ad.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/gitflow/" class="home-link router-link-active"><!----> <span class="site-name">杨煜庭的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/gitflow/zh/guides/" class="nav-link router-link-active">
+  工作流介绍
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/gitflow/zh/guides/" class="nav-link router-link-active">
+  工作流介绍
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/gitflow/zh/guides/centralized.html" class="sidebar-link">集中式工作流</a></li><li><a href="/gitflow/zh/guides/feature.html" class="sidebar-link">功能分支工作流</a></li><li><a href="/gitflow/zh/guides/gitFlow.html" class="active sidebar-link">git flow 工作流</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/gitflow/zh/guides/gitFlow.html#概述" class="sidebar-link">概述</a></li><li class="sidebar-sub-header"><a href="/gitflow/zh/guides/gitFlow.html#工作方式" class="sidebar-link">工作方式</a></li><li class="sidebar-sub-header"><a href="/gitflow/zh/guides/gitFlow.html#历史分支" class="sidebar-link">历史分支</a></li><li class="sidebar-sub-header"><a href="/gitflow/zh/guides/gitFlow.html#功能分支" class="sidebar-link">功能分支</a></li><li class="sidebar-sub-header"><a href="/gitflow/zh/guides/gitFlow.html#发布分支" class="sidebar-link">发布分支</a></li><li class="sidebar-sub-header"><a href="/gitflow/zh/guides/gitFlow.html#维护分支" class="sidebar-link">维护分支</a></li></ul></li><li><a href="/gitflow/zh/guides/forking.html" class="sidebar-link">forking 工作流</a></li><li><a href="/gitflow/zh/guides/githubFlow.html" class="sidebar-link">github flow 工作流</a></li><li><a href="/gitflow/zh/guides/gitlabFlow.html" class="sidebar-link">gitlab flow 工作流</a></li><li><a href="/gitflow/zh/guides/AoneFlow.html" class="sidebar-link">Aone flow 工作流</a></li><li><a href="/gitflow/zh/guides/commitizen.html" class="sidebar-link">commit规范</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="git-flow-工作流"><a href="#git-flow-工作流" class="header-anchor">#</a> git flow 工作流</h1> <h2 id="概述"><a href="#概述" class="header-anchor">#</a> 概述</h2> <p><img src="/gitflow/assets/img/git-workflows-gitflow.e6ad004e.png" alt="The Feathers chat application"></p> <p>GitFlow 工作流定义了一个围绕项目发布的严格分支模型。虽然比功能分支工作流复杂几分，但提供了用于一个健壮的用于管理大型项目的框架。</p> <p>GitFlow 工作流没有用超出功能分支工作流的概念和命令，而是为不同的分支分配一个很明确的角色，并定义分支之间如何和什么时候进行交互。
+除了使用功能分支，在做准备、维护和记录发布也使用各自的分支。当然你可以用上功能分支工作流所有的好处：Pull Requests、隔离实验性开发和更高效的协作。</p> <h2 id="工作方式"><a href="#工作方式" class="header-anchor">#</a> 工作方式</h2> <p>GitFlow 工作流仍然用中央仓库作为所有开发者的交互中心。和其它的工作流一样，开发者在本地工作并 push 分支到中央仓库中。</p> <h2 id="历史分支"><a href="#历史分支" class="header-anchor">#</a> 历史分支</h2> <p>相对使用仅有的一个 master 分支，GitFlow 工作流使用2个分支来记录项目的历史。master 分支存储了正式发布的历史，而 develop 分支作为功能的集成分支。
+这样也方便 master 分支上的所有提交分配一个版本号。</p> <p><img src="/gitflow/assets/img/git-workflow-release-cycle-1historical.89113dc5.png" alt="The Feathers chat application"></p> <p>剩下要说明的问题围绕着这2个分支的区别展开。</p> <h2 id="功能分支"><a href="#功能分支" class="header-anchor">#</a> 功能分支</h2> <p>每个新功能位于一个自己的分支，这样可以 push 到中央仓库以备份和协作。但功能分支不是从 master 分支上拉出新分支，而是使用 develop 分支作为父分支。当新功能完成时，
+合并回 develop 分支。新功能提交应该从不直接与 master 分支交互。
+<img src="/gitflow/assets/img/git-workflow-release-cycle-2feature.2a5d5c1d.png" alt="The Feathers chat application">
+注意，从各种含义和目的上来看，功能分支加上 develop 分支就是功能分支工作流的用法。但 GitFlow 工作流没有在这里止步。</p> <h2 id="发布分支"><a href="#发布分支" class="header-anchor">#</a> 发布分支</h2> <p><img src="/gitflow/assets/img/git-workflow-release-cycle-3release.34908921.png" alt="The Feathers chat application"></p> <p>一旦 develop 分支上有了做一次发布（或者说快到了既定的发布日）的足够功能，就从 develop 分支上 fork 一个发布分支。新建的分支用于开始发布循环，
+所以从这个时间点开始之后新的功能不能再加到这个分支上 —— 这个分支只应该做 Bug 修复、文档生成和其它面向发布任务。一旦对外发布的工作都完成了，发布分支合并到 master
+分支并分配一个版本号打好 Tag。另外，这些从新建发布分支以来的做的修改要合并回 develop 分支。</p> <p>使用一个用于发布准备的专门分支，使得一个团队可以在完善当前的发布版本的同时，另一个团队可以继续开发下个版本的功能。这也打造定义良好的开发阶段
+（比如，可以很轻松地说，『这周我们要做准备发布版本 4.0』，并且在仓库的目录结构中可以实际看到）。</p> <p>常用的分支约定：</p> <ul><li>用于新建发布分支的分支: develop</li> <li>用于合并的分支: master</li> <li>分支命名: release-* 或 release/*</li></ul> <h2 id="维护分支"><a href="#维护分支" class="header-anchor">#</a> 维护分支</h2> <p><img src="/gitflow/assets/img/git-workflow-release-cycle-4maintenance.d606ac0e.png" alt="The Feathers chat application"></p> <p>维护分支或说是热修复（hotfix）分支用于生成快速给产品发布版本（production releases）打补丁，这是唯一可以直接从 master 分支 fork 出来的分支。
+修复完成，修改应该马上合并回 master 分支和 develop 分支（当前的发布分支），master 分支应该用新的版本号打好 Tag。</p> <p>为 Bug 修复使用专门分支，让团队可以处理掉问题而不用打断其它工作或是等待下一个发布循环。你可以把维护分支想成是一个直接在 master 分支上处理的临时发布。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/gitflow/zh/guides/feature.html" class="prev">
+        功能分支工作流
+      </a></span> <span class="next"><a href="/gitflow/zh/guides/forking.html">
+        forking 工作流
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/gitflow/assets/js/app.9ae11dac.js" defer></script><script src="/gitflow/assets/js/2.874e22fe.js" defer></script><script src="/gitflow/assets/js/3.62ce4935.js" defer></script>
+  </body>
+</html>
